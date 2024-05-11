@@ -1,5 +1,7 @@
 from django.urls import path
-from .views import BattleView
+from .views import home_page, battle_detail, battle_news
 urlpatterns = [
-    path("", BattleView.as_view(), name='battes-page')
+    path("", home_page, name='battles-page'),
+    path("battle_news/", battle_news, name='battle_news_page'),
+    path("battles/<int:battle_id>/", battle_detail, name='battle_detail'),
 ]

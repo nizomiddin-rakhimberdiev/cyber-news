@@ -27,7 +27,7 @@ class Gamer(models.Model):
 class Group(models.Model):
     name = models.CharField(max_length=100)
     created_at = models.DateTimeField(auto_now_add=True)
-    image_logo = models.ImageField(upload_to='static/assets/images/')
+    image_logo = models.ImageField(upload_to='static/assets/images/', blank=True, null=True)
     def __str__(self):
         return self.name
 
@@ -74,12 +74,12 @@ class Battle_News(models.Model):
         return self.title
 
 class Battle_News_Images(models.Model):
-    image = models.ImageField(upload_to='static/assets/images/')
+    image = models.ImageField(upload_to='static/assets/images/', blank=True, null=True)
     battle_id = models.ForeignKey(Battle, on_delete=models.CASCADE)
     battle_news_id = models.ForeignKey(Battle_News, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.battle_news_id.title
+        return self.image.url
 
 class Updates_news(models.Model):
     game_id = models.ForeignKey(Game, on_delete=models.CASCADE)

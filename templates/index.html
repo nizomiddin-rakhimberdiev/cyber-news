@@ -2,8 +2,22 @@
 
 {% block title %} Battle News Page {% endblock %}
 
-{% block content%}
+{% block content %}
 
-<h1>Salam alekum, alekum assalam</h1>
+    <div class="list-group">
+
+        {% for battle in battles %}
+            <a href="{% url 'battle_detail' battle.id %}" class="list-group-item list-group-item-action">
+                <div class="d-flex w-100 justify-content-between">
+                    
+                        <h5 class="mb-1">{{ battle.title }}</h5>
+                    
+                    <small class="text-body-secondary">{{ battle.battle_data }}</small>
+                </div>
+                <p class="mb-1">{{ battle.game_club_id.name }}</p>
+            </a>
+        {% endfor %}
+
+    </div>
 
 {% endblock %}
