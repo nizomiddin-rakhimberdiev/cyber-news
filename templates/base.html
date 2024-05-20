@@ -1,67 +1,278 @@
-<!doctype html>
+{% load static %}
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{% block title %} Cyber News {% endblock %}</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <title>Gamon - Digital Gaming and Esports HTML Template | Home Page 01</title>
+    <!-- Stylesheets -->
+    <link href="{% static '/css/bootstrap.css' %}" rel="stylesheet">
+    <link href="{% static '/css/style.css' %}" rel="stylesheet">
+    <link href="{% static '/css/responsive.css' %}" rel="stylesheet">
+
+    <link rel="shortcut icon" href="{% static '/images/favicon.png' %}" type="image/x-icon">
+    <link rel="icon" href="{% static '/images/favicon.png' %}" type="image/x-icon">
+
+    <!-- Responsive -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <!--[if lt IE 9]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script><![endif]-->
+    <!--[if lt IE 9]>
+    <script src="{% static '/js/respond.js' %}"></script><![endif]-->
 </head>
+
 <body>
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#">Navbar</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'battle_news_page' %}">Battle News</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                       aria-expanded="false">
-                        Dropdown
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Action</a></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+
+<div class="page-wrapper">
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="icon"></div>
+    </div>
+
+    <!-- Main Header -->
+    <header class="main-header">
+        <!-- Header Top -->
+        <div class="header-top">
+            <div class="auto-container clearfix">
+
+                <div class="top-left clearfix">
+                    <ul class="info-list">
+                        <li>Welcome to best online gaming theme</li>
                     </ul>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-                </li>
-            </ul>
-            <form class="d-flex" role="search">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
+                </div>
+
+                <div class="top-right">
+                    <ul class="social-icons">
+                        <li><a href="#"><span class="fab fa-twitter"></span></a></li>
+                        <li><a href="#"><span class="fab fa-facebook-square"></span></a></li>
+                        <li><a href="#"><span class="fab fa-pinterest-p"></span></a></li>
+                        <li><a href="#"><span class="fab fa-instagram"></span></a></li>
+                    </ul>
+                </div>
+            </div>
         </div>
-    </div>
-</nav>
 
-<section>
-    <div class="container">
-        <div class="col-md-12 py-5">
-            {% block content %}
+        <!-- Header Upper -->
+        <div class="header-upper">
+            <div class="inner-container">
+                <div class="auto-container clearfix">
+                    <!--Logo-->
+                    <div class="logo-outer">
+                        <div class="logo"><a href="index.html"><img src="../gamon/gamon/images/logo.png" alt=""
+                                                                    title="Gamon - Digital Gaming and Esports HTML Template"></a>
+                        </div>
+                    </div>
 
-            {% endblock %}
+                    <!--Nav Box-->
+                    <div class="nav-outer clearfix">
+                        <!--Mobile Navigation Toggler-->
+                        <div class="mobile-nav-toggler"><span class="icon flaticon-menu-1"></span></div>
+
+                        <!-- Main Menu -->
+                        <nav class="main-menu navbar-expand-md navbar-light">
+                            <div class="collapse navbar-collapse show clearfix" id="navbarSupportedContent">
+                                <ul class="navigation clearfix pull-left">
+                                    <li class="current dropdown"><a href="index.html">Home</a>
+                                        <ul>
+                                            <li><a href="index.html">Home page 01</a></li>
+                                            <li><a href="index-2.html">Home page 02</a></li>
+                                            <li class="dropdown"><a href="index.html">Header Styles</a>
+                                                <ul>
+                                                    <li><a href="index.html">Header Style One</a></li>
+                                                    <li><a href="index-2.html">Header Style Two</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown"><a href="about-clan.html">Pages</a>
+                                        <ul>
+                                            <li><a href="about-clan.html">About Clan</a></li>
+                                            <li><a href="about-me.html">About Me</a></li>
+                                            <li><a href="players.html">Players</a></li>
+                                            <li><a href="faq.html">Faq's</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="gallery.html">Gallery</a></li>
+                                </ul>
+
+                                <ul class="navigation pull-right clearfix">
+                                    <li class="dropdown"><a href="matches.html">Matches</a>
+                                        <ul>
+                                            <li><a href="matches.html">Matches</a></li>
+                                            <li><a href="matches-single.html">Matches Single</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown"><a href="blog.html">Blog</a>
+                                        <ul>
+                                            <li><a href="blog.html">Blog</a></li>
+                                            <li><a href="blog-single.html">Blog Single</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="contact.html">Contacts</a></li>
+                                </ul>
+                            </div>
+                        </nav>
+                        <!-- Main Menu End-->
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-</section>
+        <!--End Header Upper-->
 
+        <!-- Sticky Header  -->
+        <div class="sticky-header">
+            <div class="auto-container clearfix">
+                <!--Logo-->
+                <div class="logo pull-left">
+                    <a href="index.html" title=""><img src="../gamon/gamon/images/logo.png" alt="" title=""></a>
+                </div>
+                <!--Right Col-->
+                <div class="pull-right">
+                    <!-- Main Menu -->
+                    <nav class="main-menu clearfix">
+                        <!--Keep This Empty / Menu will come through Javascript-->
+                    </nav><!-- Main Menu End-->
+                </div>
+            </div>
+        </div><!-- End Sticky Menu -->
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-        crossorigin="anonymous"></script>
+        <!-- Mobile Menu  -->
+        <div class="mobile-menu">
+            <div class="menu-backdrop"></div>
+            <div class="close-btn"><span class="icon flaticon-close"></span></div>
+
+            <nav class="menu-box">
+                <div class="nav-logo"><a href="index.html"><img src="../gamon/gamon/images/logo.png" alt=""
+                                                                title=""></a></div>
+                <div class="menu-outer">
+                    <!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header--></div>
+                <!--Social Links-->
+                <div class="social-links">
+                    <ul class="clearfix">
+                        <li><a href="#"><span class="fab fa-twitter"></span></a></li>
+                        <li><a href="#"><span class="fab fa-facebook-square"></span></a></li>
+                        <li><a href="#"><span class="fab fa-pinterest-p"></span></a></li>
+                        <li><a href="#"><span class="fab fa-instagram"></span></a></li>
+                        <li><a href="#"><span class="fab fa-youtube"></span></a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div><!-- End Mobile Menu -->
+    </header>
+    <!-- End Main Header -->
+    {% block content %}
+
+    {% endblock %}
+    <!-- Main Footer -->
+    <footer class="main-footer">
+        <div class="auto-container">
+            <!--Widgets Section-->
+            <div class="widgets-section">
+                <div class="row clearfix">
+
+                    <!--Column-->
+                    <div class="column col-lg-4 col-md-6 col-sm-12">
+                        <div class="footer-widget logo-widget">
+                            <div class="logo">
+                                <a href="index.html"><img src="../gamon/gamon/images/logo.png" alt=""/></a>
+                            </div>
+                            <div class="text">There are many variations of passages of lorem ipsum available, but the
+                                majority have suffered alteration in some form by injected.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--Column-->
+                    <div class="column col-lg-4 col-md-6 col-sm-12">
+                        <div class="footer-widget links-widget">
+                            <div class="widget-content">
+                                <div class="footer-title">
+                                    <h2>Links</h2>
+                                </div>
+                                <div class="row clearfix">
+                                    <div class="column col-lg-6 col-md-6 col-sm-12">
+                                        <ul class="list">
+                                            <li><a href="#">About</a></li>
+                                            <li><a href="#">Our Team</a></li>
+                                            <li><a href="#">Gallery</a></li>
+                                            <li><a href="#">Contact</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="column col-lg-6 col-md-6 col-sm-12">
+                                        <ul class="list">
+                                            <li><a href="#">Help & Support</a></li>
+                                            <li><a href="#">Privacy Policy</a></li>
+                                            <li><a href="#">Terms of Use</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--Column-->
+                    <div class="column col-lg-4 col-md-6 col-sm-12">
+                        <div class="footer-widget newsletter-widget">
+                            <div class="footer-title">
+                                <h2>Newsletter</h2>
+                            </div>
+                            <div class="text">Subsrcibe us now to get the latest news and updates</div>
+                            <div class="newsletter-form">
+                                <form method="post" action="contact.html">
+                                    <div class="form-group clearfix">
+                                        <input type="email" name="email" value="" placeholder="Email address" required>
+                                        <button type="submit" class="theme-btn newsletter-btn"><span
+                                                class="fas fa-envelope"></span></button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+            <div class="auto-container">
+                <!--Scroll to top-->
+                <div class="scroll-to-top scroll-to-target" data-target="html"><span class="flaticon-up-arrow"></span>
+                </div>
+                <!--Scroll to top-->
+                <div class="row clearfix">
+                    <!-- Column -->
+                    <div class="column col-lg-6 col-md-12 col-sm-12">
+                        <div class="copyright">&copy; Copyrights, 2019 All Rights Reserved</div>
+                    </div>
+                    <!-- Column -->
+                    <div class="column col-lg-6 col-md-12 col-sm-12">
+                        <ul class="social-icons">
+                            <li><a href="#"><span class="fab fa-twitter"></span></a></li>
+                            <li><a href="#"><span class="fab fa-facebook-square"></span></a></li>
+                            <li><a href="#"><span class="fab fa-pinterest-p"></span></a></li>
+                            <li><a href="#"><span class="fab fa-instagram"></span></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </footer>
+
+</div>
+<!--End pagewrapper-->
+
+<script src="{% static '/js/jquery.js' %}"></script>
+<script src="{% static '/js/popper.min.js' %}"></script>
+<script src="{% static '/js/bootstrap.min.js' %}"></script>
+<script src="{% static '/js/jquery-ui.js' %}"></script>
+<script src="{% static '/js/jquery.fancybox.js' %}"></script>
+<script src="{% static '/js/owl.js' %}"></script>
+<script src="{% static '/js/appear.js' %}"></script>
+<script src="{% static '/js/wow.js' %}"></script>
+<script src="{% static '/js/scrollbar.js' %}"></script>
+<script src="{% static '/js/script.js' %}"></script>
+
 </body>
 </html>

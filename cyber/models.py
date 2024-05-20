@@ -41,15 +41,15 @@ class Gamer_Group(models.Model):
 
 class Game_Club(models.Model):
     name = models.CharField(max_length=100)
-    address  = models.CharField(max_length=100)
+    address = models.CharField(max_length=100)
     created_at = models.DateTimeField(auto_now_add=True)
-    image = models.ImageField(upload_to='static/assets/images/')
+    game_club_image = models.ImageField(upload_to='static/assets/images/')
     def __str__(self):
         return self.name
 
 class Battle(models.Model):
     title = models.CharField(max_length=100)
-    battle_data = models.DateTimeField(auto_now_add=True)
+    battle_data = models.DateTimeField()
     game_club_id = models.ForeignKey(Game_Club, on_delete=models.CASCADE)
     battle_time = models.IntegerField()
     created_at = models.DateTimeField(auto_now_add=True)
@@ -74,19 +74,19 @@ class Battle_News(models.Model):
         return self.title
 
 class Battle_News_Images(models.Model):
-    image = models.ImageField(upload_to='static/assets/images/', blank=True, null=True)
+    news_image = models.ImageField(upload_to='static/assets/images/', blank=True, null=True)
     battle_id = models.ForeignKey(Battle, on_delete=models.CASCADE)
     battle_news_id = models.ForeignKey(Battle_News, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.image.url
+        return self.battle_news_id.title
 
 class Updates_news(models.Model):
     game_id = models.ForeignKey(Game, on_delete=models.CASCADE)
     title = models.CharField(max_length=100)
     description = models.TextField()
-    video = models.FileField(upload_to='static/assets/videos/')
-    image = models.ImageField(upload_to='static/assets/images/')
+    updates_news_video = models.FileField(upload_to='static/assets/videos/')
+    updates_news_image = models.ImageField(upload_to='static/assets/images/')
 
     def __str__(self):
         return self.title

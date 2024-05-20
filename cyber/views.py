@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.views import View
 
-from cyber.models import Battle, Battle_Group, Battle_News
+from cyber.models import Battle, Battle_Group, Battle_News, Game_Club
 
 
 # Create your views here.
@@ -9,7 +9,13 @@ from cyber.models import Battle, Battle_Group, Battle_News
 
 def home_page(request):
     battles = Battle.objects.all()
-    context = {'battles': battles}
+    battle_groups = Battle_Group.objects.all()
+    game_clubs = Game_Club.objects.all()
+    context = {
+        'battles': battles,
+        'battle_groups': battle_groups,
+        'game_clubs': game_clubs,
+    }
     return render(request, 'index.html', context)
 
 
