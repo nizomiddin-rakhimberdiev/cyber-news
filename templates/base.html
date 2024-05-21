@@ -58,7 +58,7 @@
                 <div class="auto-container clearfix">
                     <!--Logo-->
                     <div class="logo-outer">
-                        <div class="logo"><a href="index.html"><img src="../gamon/gamon/images/logo.png" alt=""
+                        <div class="logo"><a href="index.html"><img src="{% static '/images/logo.png' %}" alt=""
                                                                     title="Gamon - Digital Gaming and Esports HTML Template"></a>
                         </div>
                     </div>
@@ -96,10 +96,9 @@
                                 </ul>
 
                                 <ul class="navigation pull-right clearfix">
-                                    <li class="dropdown"><a href="matches.html">Matches</a>
+                                    <li class="dropdown"><a href="{% url 'battles_page' %}">Matches</a>
                                         <ul>
-                                            <li><a href="matches.html">Matches</a></li>
-                                            <li><a href="matches-single.html">Matches Single</a></li>
+                                            <li><a href="{% url 'battles_page' %}">Matches</a></li>
                                         </ul>
                                     </li>
                                     <li class="dropdown"><a href="blog.html">Blog</a>
