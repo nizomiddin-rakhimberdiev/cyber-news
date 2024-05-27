@@ -25,9 +25,9 @@
 
 <div class="page-wrapper">
     <!-- Preloader -->
-    <div class="preloader">
-        <div class="icon"></div>
-    </div>
+{#    <div class="preloader">#}
+{#        <div class="icon"></div>#}
+{#    </div>#}
 
     <!-- Main Header -->
     <header class="main-header">
@@ -108,6 +108,12 @@
                                         </ul>
                                     </li>
                                     <li><a href="contact.html">Contacts</a></li>
+                                    {% if request.user.is_authenticated %}
+                                        <li><a href="contact.html">Logout</a></li>
+                                    {% else %}
+                                        <li><a href="{% url 'register' %}">Register</a></li>
+                                        <li><a href="contact.html">Login</a></li>
+                                    {% endif %}
                                 </ul>
                             </div>
                         </nav>
