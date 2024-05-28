@@ -1,7 +1,10 @@
-from django.shortcuts import render
+from django.contrib.auth import login
+from django.contrib.auth.forms import AuthenticationForm
+from django.shortcuts import render, redirect
 from django.views import View
 
-from cyber.models import Battle, Battle_Group, Battle_News, Game_Club, Gamer
+from cyber.models import Battle, Battle_Group, Battle_News, Game_Club, Gamer, Updates_news
+from cyber.forms import GameCommentaryForm
 
 
 # Create your views here.
@@ -39,24 +42,37 @@ def battles_page(request):
     return render(request, 'matches.html', context)
 
 
+def blog(request):
+    updates = Updates_news.objects.all()
+    context = {'updates': updates}
+    return render(request, 'blog.html', context)
+
+
+def blog_single(request, id):
+    update = Updates_news.objects.get(id=id)
+    context = {'update': update}
+    return render(request, 'blog-single.html', context)
+
+
+def gamer_login(request):
+    if request.method == 'POST':
+        form = AuthenticationForm(data=request.POST)
+        if form.is_valid():
+            login(request, form.get_user())
+            return redirect('home-page')
+    else:
+        form = AuthenticationForm()
+    return render(request, 'login.html', {'form': form})
+
+
 def gamer_register(request):
     if request.method == 'POST':
-        username = request.POST['username']
-        first_name = request.POST['first_name']
-        last_name = request.POST['last_name']
-        email = request.POST['email']
-        password = request.POST['password']
-        rating = request.POST['rating']
-        game = request.POST['game']
-        avatar = request.POST['avatar']
+        form = GameCommentaryForm(request.POST, files=request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect(gamer_login)
+    else:
+        form = GameCommentaryForm()
+        context = {'form': form}
 
-        Gamer.objects.create(username=username,
-                             first_name=first_name,
-                             last_name=last_name,
-                             email=email,
-                             password=password,
-                             rating=rating,
-                             game=game,
-                             avatar=avatar)
-
-    return render(request, 'register.html')
+    return render(request, 'register.html', context)

@@ -23,7 +23,7 @@ class Game(models.Model):
 class Gamer(AbstractUser):
     rating = models.IntegerField(default=0)
     avatar = models.ImageField(upload_to='static/assets/avatars/')
-    game = models.ForeignKey(Game, on_delete=models.CASCADE)
+    game = models.ForeignKey(Game, on_delete=models.CASCADE, null=True, blank=True)
 
     def __str__(self):
         return self.username
