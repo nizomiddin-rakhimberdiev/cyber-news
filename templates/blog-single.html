@@ -140,30 +140,21 @@
                         <div class="sidebar-widget popular-posts">
                             <div class="widget-content">
                                 <h4 class="sidebar-title">Recent Posts</h4>
-                                <article class="post">
-                                    <div class="post-inner">
-                                        <figure class="post-thumb"><a href="blog-single.html"><img src="images/resource/post-thumb-1.jpg" alt=""></a></figure>
-                                        <div class="post-info">16 May 2019</div>
-                                        <div class="text"><a href="blog-single.html">Lion king vs wolf smart upcoming matches</a></div>
-                                    </div>
-
-                                </article>
                                 
-                                <article class="post">
+                                {% for update in recent_updates %}
+                                
+                                    <article class="post">
                                     <div class="post-inner">
-                                        <figure class="post-thumb"><a href="blog-single.html"><img src="images/resource/post-thumb-2.jpg" alt=""></a></figure>
-                                        <div class="post-info">11 May 2019</div>
-                                        <div class="text"><a href="blog-single.html">How to become a register user on gamon</a></div>
+                                        <figure class="post-thumb"><a href="blog-single.html"><img src="{{ update.updates_news_image.url }}" alt=""></a></figure>
+                                        <div class="post-info">{{ update.created_at }}</div>
+                                        <div class="text"><a href="blog-single.html">{{ update.title }}</a></div>
                                     </div>
-                                </article>
 
-                                <article class="post">
-                                    <div class="post-inner">
-                                        <figure class="post-thumb"><a href="blog-single.html"><img src="images/resource/post-thumb-3.jpg" alt=""></a></figure>
-                                        <div class="post-info">10 May 2019</div>
-                                        <div class="text"><a href="blog-single.html">Last matches champions advices for</a></div>
-                                    </div>
-                                </article>
+                                    </article>
+                                    
+                                {% endfor %}
+                                
+                                
                             </div>
                         </div>
 

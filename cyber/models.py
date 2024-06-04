@@ -102,6 +102,7 @@ class Updates_news(models.Model):
     description = models.TextField()
     updates_news_video = models.FileField(upload_to='static/assets/videos/')
     updates_news_image = models.ImageField(upload_to='static/assets/images/')
+    created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return self.title

@@ -49,8 +49,9 @@ def blog(request):
 
 
 def blog_single(request, id):
+    recent_updates = Updates_news.objects.all().order_by('-created_at')[:3]
     update = Updates_news.objects.get(id=id)
-    context = {'update': update}
+    context = {'update': update, 'recent_updates': recent_updates}
     return render(request, 'blog-single.html', context)
 
 
