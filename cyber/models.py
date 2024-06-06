@@ -22,7 +22,7 @@ class Game(models.Model):
 
 class Gamer(AbstractUser):
     rating = models.IntegerField(default=0)
-    avatar = models.ImageField(upload_to='static/assets/avatars/')
+    avatar = models.ImageField(upload_to='media/avatars/')
     game = models.ForeignKey(Game, on_delete=models.CASCADE, null=True, blank=True)
 
     def __str__(self):
@@ -32,7 +32,7 @@ class Gamer(AbstractUser):
 class Group(models.Model):
     name = models.CharField(max_length=100)
     created_at = models.DateTimeField(auto_now_add=True)
-    image_logo = models.ImageField(upload_to='static/assets/images/', blank=True, null=True)
+    image_logo = models.ImageField(upload_to='media/images/', blank=True, null=True)
 
     def __str__(self):
         return self.name
@@ -52,7 +52,7 @@ class Game_Club(models.Model):
     name = models.CharField(max_length=100)
     address = models.CharField(max_length=100)
     created_at = models.DateTimeField(auto_now_add=True)
-    game_club_image = models.ImageField(upload_to='static/assets/images/')
+    game_club_image = models.ImageField(upload_to='media/images/')
 
     def __str__(self):
         return self.name
@@ -88,7 +88,7 @@ class Battle_News(models.Model):
 
 
 class Battle_News_Images(models.Model):
-    news_image = models.ImageField(upload_to='static/assets/images/', blank=True, null=True)
+    news_image = models.ImageField(upload_to='media/images/', blank=True, null=True)
     battle_id = models.ForeignKey(Battle, on_delete=models.CASCADE)
     battle_news_id = models.ForeignKey(Battle_News, on_delete=models.CASCADE)
 
@@ -100,8 +100,8 @@ class Updates_news(models.Model):
     game_id = models.ForeignKey(Game, on_delete=models.CASCADE)
     title = models.CharField(max_length=100)
     description = models.TextField()
-    updates_news_video = models.FileField(upload_to='static/assets/videos/')
-    updates_news_image = models.ImageField(upload_to='static/assets/images/')
+    updates_news_video = models.FileField(upload_to='media/videos/', null=True, blank=True)
+    updates_news_image = models.ImageField(upload_to='media/images/')
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
